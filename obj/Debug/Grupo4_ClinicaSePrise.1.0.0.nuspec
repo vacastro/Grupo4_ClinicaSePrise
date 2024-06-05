@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Grupo4_ClinicaSePrise</id>
+    <version>1.0.0</version>
+    <authors>Grupo4_ClinicaSePrise</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net7.0-windows7.0">
+        <dependency id="MySql.Data" version="8.4.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net7.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\bin\Debug\net7.0-windows\Grupo4_ClinicaSePrise.runtimeconfig.json" target="lib\net7.0-windows7.0\Grupo4_ClinicaSePrise.runtimeconfig.json" />
+    <file src="C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\bin\Debug\net7.0-windows\Grupo4_ClinicaSePrise.dll" target="lib\net7.0-windows7.0\Grupo4_ClinicaSePrise.dll" />
+  </files>
+</package>

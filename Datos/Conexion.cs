@@ -27,7 +27,7 @@ namespace Grupo4_ClinicaSePrise.Datos
         }
 
         // proceso de interacción
-        public MySqlConnection CrearConcexion()
+        public MySqlConnection CrearConexion()
         {
             // instanciamos una conexion
             MySqlConnection? cadena = new MySqlConnection();

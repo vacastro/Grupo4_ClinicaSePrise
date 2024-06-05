@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="FormLogin.cs">
+    <Compile Update="Formularios\FormAgendaTurnos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormMenuPpal.cs">
+    <Compile Update="Formularios\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\FormMenuPpal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\FormSolicitudTurno.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
