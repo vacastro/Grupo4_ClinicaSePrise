@@ -18,75 +18,16 @@ namespace Grupo4_ClinicaSePrise.Formularios
             InitializeComponent();
         }
 
-        private void btnBuscarDni_Click(object sender, EventArgs e)
+        private void buttonConsultoriosExternos_Click(object sender, EventArgs e)
         {
-            MensajeLabel1.Visible = false;
-            string dni;
-            long dniNum = 0;
-
-            dni = txtDni.Text.Trim();
-
-            validarDatos(dni);
-
-
-            if (!EsNumero(dni))
-            {
-                MensajeLabel1.Visible = true;
-            }
-            else
-            {
-                dniNum = long.Parse(dni);
-            }
-
-            if (dniNum > 0)
-            {
-                // buscar al cliente en la base de datos
-                Datos.ClienteDatos cli = new Datos.ClienteDatos();
-                Cliente cliente = cli.IdentificarCliente(dniNum);
-
-
-                if (dniNum == cliente.getDni())
-                {
-                    MenuCliente menuCliente = new MenuCliente();
-                    menuCliente.cliente = cliente;
-                    menuCliente.Show();
-                }
-                else
-                {
-                    SinLocalizarCliente sinLocalizarCliente = new SinLocalizarCliente();
-                    sinLocalizarCliente.Show();
-
-                }
-            }
+            FormConsultoriosExternos formConsultoriosExternos = new FormConsultoriosExternos();
+            formConsultoriosExternos.ShowDialog();
         }
 
-        public void validarDatos(String dni)
+        private void buttonEstudiosMedicos_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(dni))
-            {
-                AsteriscoLabel1.Visible = true;
-                MensajeLabel1.Visible = true;
-
-            }
-        }
-
-
-        private bool EsNumero(string dni)
-        {
-            foreach (char c in dni)
-            {
-                if (!char.IsDigit(c))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
-            AsteriscoLabel1.Visible = false;
-            MensajeLabel1.Visible = false;
+            FormEstudiosMedicos formEstudiosMedicos = new FormEstudiosMedicos();
+            formEstudiosMedicos.ShowDialog();
         }
     }
 }

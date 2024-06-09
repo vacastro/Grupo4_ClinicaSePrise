@@ -18,7 +18,7 @@ namespace Grupo4_ClinicaSePrise
 
         private void SolicitudTurnoButton_Click(object sender, EventArgs e)
         {
-            FormSolicitudTurno formSolicitudTurno = new FormSolicitudTurno();
+            FormBuscarPaciente formSolicitudTurno = new FormBuscarPaciente();
             formSolicitudTurno.ShowDialog();
         }
 

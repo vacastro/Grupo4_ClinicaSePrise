@@ -33,3 +33,8 @@ C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows
 C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.FormMenuPpal.resources
 C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.FormAgendaTurnos.resources
 C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.FormSolicitudTurno.resources
+C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.FormBuscarPaciente.resources
+C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.FormConsultoriosExternos.resources
+C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.FormEstudiosMedicos.resources
+C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.MenuPaciente.resources
+C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.SinLocalizarPaciente.resources

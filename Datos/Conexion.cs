@@ -19,7 +19,7 @@ namespace Grupo4_ClinicaSePrise.Datos
 
         private Conexion() // asignamos valores a las variables de la conexion
         {
-            this.baseDatos = "ClubDeportivoGrupo12";
+            this.baseDatos = "ClinicaSePriseGrupo4";
             this.servidor = "localhost";
             this.puerto = "3306";
             this.usuario = "root";

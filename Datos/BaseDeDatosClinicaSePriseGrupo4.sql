@@ -38,6 +38,7 @@ INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('con
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Cirugía');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Dermatología');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Endocrinología');
+INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Fisio-Kinesiologia');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Fonoaudiología');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Gastroenterología');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Ginecología');
@@ -50,6 +51,7 @@ INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('con
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Otorrinolaringología');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Pediatría');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Proctología');
+INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Salud Mental');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Traumatología');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Urología');
 
@@ -67,3 +69,21 @@ INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('est
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('estudios_medicos', 'Radiografía');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('estudios_medicos', 'Resonancia magnética');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('estudios_medicos', 'Tomografía');
+
+
+CREATE TABLE paciente (
+    pacienteId INT AUTO_INCREMENT,
+    nombre VARCHAR(40),
+    apellido VARCHAR(40),
+    fecNacimiento DATE,
+    domicilio VARCHAR(40),
+    email VARCHAR(40),
+    telefono VARCHAR(20),
+    dni BIGINT,
+    PRIMARY KEY (pacienteId)
+);
+
+insert into paciente(pacienteId,nombre,apellido,fecNacimiento,domicilio,email,telefono,dni) values 
+(default,'Leo','Messi',19880101,'Siempreviva 123','leo10@gmail.com','10101010',33495009),
+(default,'Angel','DiMaria',19880201,'Siempreviva 124','angelito07@gmail.com','070707',33495007),
+(default,'Dibu','Martinez',19880301,'Siempreviva 125','el_Dibu@gmail.com','232323',33495008);
