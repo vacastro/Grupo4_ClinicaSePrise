@@ -87,3 +87,15 @@ insert into paciente(pacienteId,nombre,apellido,fecNacimiento,domicilio,email,te
 (default,'Leo','Messi',19880101,'Siempreviva 123','leo10@gmail.com','10101010',33495009),
 (default,'Angel','DiMaria',19880201,'Siempreviva 124','angelito07@gmail.com','070707',33495007),
 (default,'Dibu','Martinez',19880301,'Siempreviva 125','el_Dibu@gmail.com','232323',33495008);
+
+
+CREATE TABLE turno (
+    turnoId INT AUTO_INCREMENT,
+    fecha DATE,
+    hora TIME,
+    especialidad VARCHAR(255),
+    pacienteId INT, 
+    sobreturno BOOLEAN DEFAULT false,
+    PRIMARY KEY (turnoId),
+    FOREIGN KEY (pacienteId) REFERENCES paciente (pacienteId)
+);

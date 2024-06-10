@@ -20,5 +20,10 @@ namespace Grupo4_ClinicaSePrise.Formularios
         }
         internal Paciente? paciente;
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormSolicitudTurno formSolicitudTurno = new FormSolicitudTurno();
+            formSolicitudTurno.ShowDialog();
+        }
     }
 }

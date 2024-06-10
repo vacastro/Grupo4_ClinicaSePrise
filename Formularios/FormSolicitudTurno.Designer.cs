@@ -64,6 +64,7 @@
             Name = "FormSolicitudTurno";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Solicitud de Turnos";
+            Load += FormSolicitudTurno_Load;
             ResumeLayout(false);
         }
 
