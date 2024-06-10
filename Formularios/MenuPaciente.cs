@@ -24,10 +24,17 @@ namespace Grupo4_ClinicaSePrise.Formularios
         {
             FormSolicitudTurno formSolicitudTurno = new FormSolicitudTurno();
             formSolicitudTurno.paciente = paciente;
-            
+
             formSolicitudTurno.ShowDialog();
             this.Close();
-            
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormTurnosSolicitados formTurnosSolicitados = new FormTurnosSolicitados(paciente);
+            formTurnosSolicitados.paciente = paciente;
+            formTurnosSolicitados.ShowDialog();
         }
     }
 }

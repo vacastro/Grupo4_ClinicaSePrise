@@ -39,7 +39,7 @@
             SolicitudTurnoButton.Name = "SolicitudTurnoButton";
             SolicitudTurnoButton.Size = new Size(187, 91);
             SolicitudTurnoButton.TabIndex = 0;
-            SolicitudTurnoButton.Text = "Solicitud de turno";
+            SolicitudTurnoButton.Text = "Turnos";
             SolicitudTurnoButton.UseVisualStyleBackColor = true;
             SolicitudTurnoButton.Click += SolicitudTurnoButton_Click;
             // 

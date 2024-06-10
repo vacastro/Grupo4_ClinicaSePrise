@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Grupo4_ClinicaSePrise.Entidades;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -138,6 +139,88 @@ namespace Grupo4_ClinicaSePrise.Datos
             }
 
             return calendarioSobreTurnos;
+        }
+
+
+        public List<Turno> BuscarTurnosPaciente(long pacienteId)
+        {
+            List<Turno> turnosPaciente = new List<Turno>();
+
+            MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion();
+            try
+            {
+                sqlCon.Open();
+
+                DateTime fechaHoraActual = DateTime.Now; // Obtener la fecha y hora actual
+
+                string query = "SELECT TurnoId, fecha, hora, especialidad FROM turno WHERE pacienteId = @pacienteId AND (fecha > @fechaActual OR (fecha = @fechaActual AND hora > @horaActual))";
+
+                MySqlCommand command = new MySqlCommand(query, sqlCon);
+                command.Parameters.AddWithValue("@pacienteId", pacienteId);
+                command.Parameters.AddWithValue("@fechaActual", fechaHoraActual.Date); // Solo la fecha sin la hora
+                command.Parameters.AddWithValue("@horaActual", fechaHoraActual.TimeOfDay); // Solo la hora sin la fecha
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Turno turno = new Turno
+                        {
+                            TurnoId = reader.GetInt64("TurnoId"),
+                            Fecha = reader.GetDateTime("fecha"),
+                            Hora = reader.GetTimeSpan("hora"),
+                            Especialidad = reader.GetString("especialidad"),
+                            PacienteId = pacienteId
+                        };
+
+                        turnosPaciente.Add(turno);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar los turnos del paciente: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+
+            return turnosPaciente;
+        }
+
+
+        public void CancelarTurno(long turnoId)
+        {
+            MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion();
+            try
+            {
+                sqlCon.Open();
+
+                string query = "DELETE FROM turno WHERE TurnoId = @turnoId";
+
+                MySqlCommand command = new MySqlCommand(query, sqlCon);
+                command.Parameters.AddWithValue("@turnoId", turnoId);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    throw new Exception("El turno no existe o ya ha sido cancelado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al cancelar el turno: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
         }
 
 

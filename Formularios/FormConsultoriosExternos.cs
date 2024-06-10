@@ -25,8 +25,8 @@ namespace Grupo4_ClinicaSePrise.Formularios
             this.especialidadesConsultorioExterno = especialidadesConsultorioExterno;
             LlenarComboBox();
 
-            dgvListaTurnos.Columns.Add("RadioButtonColumn", "Seleccionar"); // Columna de RadioButton
-            dgvListaTurnos.Columns.Add("FechaColumn", "Fecha"); // Columna de Fecha
+            dgvListaTurnos.Columns.Add("RadioButtonColumn", "Seleccionar"); 
+            dgvListaTurnos.Columns.Add("FechaColumn", "Fecha"); 
             dgvListaTurnos.Columns.Add("HoraColumn", "Hora");
         }
 
@@ -90,7 +90,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
             // Mostrar los turnos en el DataGridView
             MostrarTurnos(calendarioDisponible);
             dgvListaTurnos.Visible = true;
-        
+
         }
 
         private void MostrarTurnos(Dictionary<DateTime, List<TimeSpan>> calendarioTurnos)
@@ -146,7 +146,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
                 return;
             }
 
-            
+
             if (selectedRow != null)
             {
                 Turno turnoSeleccionado = new Turno();
@@ -161,11 +161,6 @@ namespace Grupo4_ClinicaSePrise.Formularios
                 formConfirmacionTurno.ShowDialog();
 
             }
-        }
-
-        private void FormConsultoriosExternos_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

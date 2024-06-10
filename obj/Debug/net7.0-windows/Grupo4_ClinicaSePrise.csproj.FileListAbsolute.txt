@@ -39,3 +39,4 @@ C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows
 C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.MenuPaciente.resources
 C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.SinLocalizarPaciente.resources
 C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.FormConfirmacionTurno.resources
+C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\obj\Debug\net7.0-windows\Grupo4_ClinicaSePrise.Formularios.FormTurnosSolicitados.resources

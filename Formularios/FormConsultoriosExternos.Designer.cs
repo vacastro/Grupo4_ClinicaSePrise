@@ -121,7 +121,6 @@
             Name = "FormConsultoriosExternos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Consultorios Externos";
-            Load += FormConsultoriosExternos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvListaTurnos).EndInit();
             ResumeLayout(false);
             PerformLayout();

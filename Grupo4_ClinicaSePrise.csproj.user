@@ -25,6 +25,9 @@
     <Compile Update="Formularios\FormBuscarPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\FormTurnosSolicitados.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\MenuPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
