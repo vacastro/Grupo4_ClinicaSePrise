@@ -34,6 +34,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
             EspecialidadesDatos especialidadesDatos = new EspecialidadesDatos();
             especialidadesConsultorioExterno = especialidadesDatos.ObtenerEspecialidadesPorTipo("consultorio_externo");
             FormConsultoriosExternos formConsultoriosExternos = new FormConsultoriosExternos(especialidadesConsultorioExterno);
+            formConsultoriosExternos.paciente = paciente;
             formConsultoriosExternos.ShowDialog();
         }
 
@@ -43,6 +44,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
             especialidadesEstudiosMedicos = especialidadesDatos.ObtenerEspecialidadesPorTipo("estudios_medicos");
 
             FormEstudiosMedicos formEstudiosMedicos = new FormEstudiosMedicos(especialidadesEstudiosMedicos);
+            formEstudiosMedicos.paciente = paciente;
             formEstudiosMedicos.ShowDialog();
         }
 

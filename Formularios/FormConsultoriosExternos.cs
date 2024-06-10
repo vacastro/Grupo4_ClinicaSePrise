@@ -1,4 +1,5 @@
 ﻿using Grupo4_ClinicaSePrise.Datos;
+using Grupo4_ClinicaSePrise.Entidades;
 using Grupo4_ClinicaSePrise.Service;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace Grupo4_ClinicaSePrise.Formularios
     public partial class FormConsultoriosExternos : Form
     {
 
+        internal Paciente? paciente;
+        bool esSobreturno = false;
         private List<string> especialidadesConsultorioExterno;
         public FormConsultoriosExternos(List<string> especialidadesConsultorioExterno)
         {
@@ -26,6 +29,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
             dgvListaTurnos.Columns.Add("FechaColumn", "Fecha"); // Columna de Fecha
             dgvListaTurnos.Columns.Add("HoraColumn", "Hora");
         }
+
 
 
         private void LlenarComboBox()
@@ -56,20 +60,37 @@ namespace Grupo4_ClinicaSePrise.Formularios
             if (especialidadSeleccionada.Equals("Fisio-Kinesiologia"))
             {
                 gestorTurnoService = new GestorTurnoService(25, especialidadSeleccionada);
-            }else if (especialidadSeleccionada.Equals("Salud Mental"))
+            }
+            else if (especialidadSeleccionada.Equals("Salud Mental"))
             {
                 gestorTurnoService = new GestorTurnoService(30, especialidadSeleccionada);
-            }else
+            }
+            else
             {
                 gestorTurnoService = new GestorTurnoService(15, especialidadSeleccionada);
             }
 
 
-            Dictionary<DateTime, List<TimeSpan>> calendarioDisponible = gestorTurnoService.CalendarioTurnos;
+            Dictionary<DateTime, List<TimeSpan>> calendarioDisponible = new Dictionary<DateTime, List<TimeSpan>>();
+            if (gestorTurnoService.CalendarioTurnos.Count == 0)
+            {
+                MessageBox.Show("No hay turnos disponibles. Puede agendar un sobre turno. Considere que la sala de espera puede estar demorada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                calendarioDisponible = gestorTurnoService.CalendarioSobreTurnos;
+                esSobreturno = true;
+                lbSobreTurnos.Visible = true;
+                lbProximosTurnos.Visible = false;
+            }
+            else
+            {
+                calendarioDisponible = gestorTurnoService.CalendarioTurnos;
+                lbProximosTurnos.Visible = true;
+                lbSobreTurnos.Visible = false;
+            }
 
             // Mostrar los turnos en el DataGridView
             MostrarTurnos(calendarioDisponible);
             dgvListaTurnos.Visible = true;
+        
         }
 
         private void MostrarTurnos(Dictionary<DateTime, List<TimeSpan>> calendarioTurnos)
@@ -80,6 +101,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
             // Agregar la columna de checkbox
             DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
             checkboxColumn.HeaderText = "Seleccionado";
+            checkboxColumn.Name = "Seleccionado";
             dgvListaTurnos.Columns.Add(checkboxColumn);
 
             // Agregar las columnas de fecha y hora
@@ -96,6 +118,54 @@ namespace Grupo4_ClinicaSePrise.Formularios
                     dgvListaTurnos.Rows.Add(false, fecha.ToShortDateString(), hora.ToString("hh\\:mm"));
                 }
             }
+        }
+
+        private void btnAgendar_Click(object sender, EventArgs e)
+        {
+            int selectedCount = 0;
+            DataGridViewRow selectedRow = null;
+
+            foreach (DataGridViewRow row in dgvListaTurnos.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Seleccionado"].Value))
+                {
+                    selectedCount++;
+                    selectedRow = row;
+                }
+            }
+
+            if (selectedCount == 0)
+            {
+                MessageBox.Show("Por favor, seleccione un turno para agendar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedCount > 1)
+            {
+                MessageBox.Show("Solo puede seleccionar un turno a la vez.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            
+            if (selectedRow != null)
+            {
+                Turno turnoSeleccionado = new Turno();
+                turnoSeleccionado.Fecha = DateTime.Parse(selectedRow.Cells["Fecha"].Value.ToString());
+                turnoSeleccionado.Hora = TimeSpan.Parse(selectedRow.Cells["Hora"].Value.ToString());
+                turnoSeleccionado.Especialidad = comboBox1.SelectedItem.ToString();
+                turnoSeleccionado.Sobreturno = esSobreturno;
+                turnoSeleccionado.PacienteId = paciente.PacienteId;
+                FormConfirmacionTurno formConfirmacionTurno = new FormConfirmacionTurno();
+                formConfirmacionTurno.paciente = paciente;
+                formConfirmacionTurno.turno = turnoSeleccionado;
+                formConfirmacionTurno.ShowDialog();
+
+            }
+        }
+
+        private void FormConsultoriosExternos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
