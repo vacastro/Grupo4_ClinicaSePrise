@@ -1,4 +1,6 @@
-﻿using MySqlX.XDevAPI;
+﻿using Grupo4_ClinicaSePrise.Datos;
+using Grupo4_ClinicaSePrise.Entidades;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,21 +15,42 @@ namespace Grupo4_ClinicaSePrise.Formularios
 {
     public partial class FormSolicitudTurno : Form
     {
+        internal Paciente? paciente;
+        private List<string> especialidadesConsultorioExterno;
+        private List<string> especialidadesEstudiosMedicos;
+
         public FormSolicitudTurno()
         {
             InitializeComponent();
+            especialidadesConsultorioExterno = new List<string>();
+            especialidadesEstudiosMedicos = new List<string>();
         }
+
+      
+
 
         private void buttonConsultoriosExternos_Click(object sender, EventArgs e)
         {
-            FormConsultoriosExternos formConsultoriosExternos = new FormConsultoriosExternos();
+            EspecialidadesDatos especialidadesDatos = new EspecialidadesDatos();
+            especialidadesConsultorioExterno = especialidadesDatos.ObtenerEspecialidadesPorTipo("consultorio_externo");
+            FormConsultoriosExternos formConsultoriosExternos = new FormConsultoriosExternos(especialidadesConsultorioExterno);
+            formConsultoriosExternos.paciente = paciente;
             formConsultoriosExternos.ShowDialog();
         }
 
         private void buttonEstudiosMedicos_Click(object sender, EventArgs e)
         {
-            FormEstudiosMedicos formEstudiosMedicos = new FormEstudiosMedicos();
+            EspecialidadesDatos especialidadesDatos = new EspecialidadesDatos();
+            especialidadesEstudiosMedicos = especialidadesDatos.ObtenerEspecialidadesPorTipo("estudios_medicos");
+
+            FormEstudiosMedicos formEstudiosMedicos = new FormEstudiosMedicos(especialidadesEstudiosMedicos);
+            formEstudiosMedicos.paciente = paciente;
             formEstudiosMedicos.ShowDialog();
+        }
+
+        private void FormSolicitudTurno_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

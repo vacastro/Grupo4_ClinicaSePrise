@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grupo4_ClinicaSePrise.Entidades
 {
-    internal class Paciente
+    public class Paciente
     {
 
         private long pacienteId;

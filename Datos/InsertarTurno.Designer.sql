@@ -1,6 +1,6 @@
-﻿namespace Grupo4_ClinicaSePrise.Formularios
+﻿namespace Grupo4_ClinicaSePrise.Datos
 {
-    partial class SinLocalizarPaciente
+    partial class InsertarTurno
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // SinLocalizarPaciente
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 411);
-            Name = "SinLocalizarPaciente";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "SinLocalizarPaciente";
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "InsertarTurno";
         }
 
         #endregion

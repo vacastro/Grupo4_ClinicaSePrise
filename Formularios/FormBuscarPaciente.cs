@@ -50,7 +50,10 @@ namespace Grupo4_ClinicaSePrise.Formularios
                 {
                     MenuPaciente menuPaciente = new MenuPaciente();
                     menuPaciente.paciente = paciente;
-                    menuPaciente.Show();
+                    this.Hide();
+                    menuPaciente.ShowDialog();
+                    
+                    
                 }
                 else
                 {
