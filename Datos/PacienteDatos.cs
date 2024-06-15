@@ -129,5 +129,48 @@ namespace Grupo4_ClinicaSePrise.Datos
             }
         }
 
+        public Paciente BuscarPacienteById(long pacienteId)
+        {
+            Paciente? pac = null;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+
+                string query = "SELECT nombre, apellido,dni, email FROM paciente WHERE pacienteId = @pacienteId";
+
+                MySqlCommand command = new MySqlCommand(query, sqlCon);
+                command.Parameters.AddWithValue("@pacienteId", pacienteId);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        pac = new Paciente
+                        {
+
+                            Nombre = reader.GetString("nombre"),
+                            Apellido = reader.GetString("apellido"),
+                            Dni = reader.GetInt64("dni"),
+                            Email = reader.GetString("email"),
+                            PacienteId = pacienteId
+                        };
+
+
+                    }
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+
+            return pac;
+
+
+
+        }
     }
 }
