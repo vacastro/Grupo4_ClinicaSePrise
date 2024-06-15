@@ -36,5 +36,23 @@ namespace Grupo4_ClinicaSePrise.Formularios
             formTurnosSolicitados.paciente = paciente;
             formTurnosSolicitados.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormActualizarPaciente formActualizarPaciente = new FormActualizarPaciente(paciente);
+            formActualizarPaciente.paciente = paciente;
+
+            formActualizarPaciente.ShowDialog();
+        }
+
+        private void MenuPaciente_Load(object sender, EventArgs e)
+        {
+            if (paciente != null)
+            {
+                lblNombre.Text = "Nombre: " + paciente.Nombre;
+                lblApellido.Text = "Apellido: " + paciente.Apellido;
+                lblDni.Text = "DNI: " + paciente.Dni.ToString();
+            }
+        }
     }
 }

@@ -27,4 +27,13 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Datos\ActualizarPaciente.sql">
+      <SubType>Form</SubType>
+    </None>
+    <None Update="Datos\InsertarPaciente.sql">
+      <SubType>Form</SubType>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -14,4 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Grupo4_ClinicaSePrise
-build_property.ProjectDir = C:\Users\P077903\Documents\GitHub\Grupo4_ClinicaSePrise\
+build_property.ProjectDir = C:\Users\aguarmes\Documents\Tecnicatura\Grupo4_ClinicaSePrise\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
