@@ -223,6 +223,62 @@ namespace Grupo4_ClinicaSePrise.Datos
             }
         }
 
+        public Dictionary<DateTime, List<Turno>> BuscarTurnosPorEspecialidad(string especialidad)
+        {
+            Dictionary<DateTime, List<Turno>> calendarioTurnos = new Dictionary<DateTime, List<Turno>>();
 
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+
+                DateTime fechaInicio = DateTime.Today;
+                DateTime fechaFin = DateTime.Today.AddDays(10);
+
+                string query = "SELECT fecha, hora, pacienteId, especialidad FROM turno WHERE especialidad = @especialidad AND fecha BETWEEN @fechaInicio AND @fechaFin";
+
+                MySqlCommand command = new MySqlCommand(query, sqlCon);
+                command.Parameters.AddWithValue("@especialidad", especialidad);
+                command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                command.Parameters.AddWithValue("@fechaFin", fechaFin);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DateTime fechaTurno = reader.GetDateTime("fecha");
+                        TimeSpan horaTurno = reader.GetTimeSpan("hora");
+
+                        Turno turno = new Turno
+                        {
+                            Fecha = fechaTurno,
+                            Hora = horaTurno,
+                            Especialidad = reader.GetString("especialidad"),
+                            PacienteId = reader.GetInt64("pacienteId")
+                        };
+
+                        if (!calendarioTurnos.ContainsKey(fechaTurno))
+                        {
+                            calendarioTurnos[fechaTurno] = new List<Turno>();
+                        }
+
+                        calendarioTurnos[fechaTurno].Add(turno);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar los turnos agendados por especialidad: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == System.Data.ConnectionState.Open)
+                    sqlCon.Close();
+            }
+
+            return calendarioTurnos;
+        }
     }
 }

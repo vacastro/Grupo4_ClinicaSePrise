@@ -48,11 +48,12 @@
             // BoxTrurnos
             // 
             BoxTrurnos.FormattingEnabled = true;
-            BoxTrurnos.Items.AddRange(new object[] { "Cardiologia", "Laboratorio", "Estudios" });
+            BoxTrurnos.Items.AddRange(new object[] { "ginecologia", "cardiologia", "laboratorio", "estudios" });
             BoxTrurnos.Location = new Point(211, 136);
             BoxTrurnos.Name = "BoxTrurnos";
             BoxTrurnos.Size = new Size(121, 23);
             BoxTrurnos.TabIndex = 1;
+            BoxTrurnos.SelectedIndexChanged += BoxTrurnos_SelectedIndexChanged;
             // 
             // dateAgendaTrunos
             // 
@@ -60,6 +61,7 @@
             dateAgendaTrunos.Name = "dateAgendaTrunos";
             dateAgendaTrunos.Size = new Size(200, 23);
             dateAgendaTrunos.TabIndex = 2;
+            dateAgendaTrunos.ValueChanged += dateAgendaTrunos_ValueChanged;
             // 
             // dataGridView1
             // 
@@ -78,6 +80,7 @@
             btnTurnosVolver.TabIndex = 4;
             btnTurnosVolver.Text = "Volver";
             btnTurnosVolver.UseVisualStyleBackColor = true;
+            btnTurnosVolver.Click += btnTurnosVolver_Click;
             // 
             // FormAgendaTurnos
             // 
