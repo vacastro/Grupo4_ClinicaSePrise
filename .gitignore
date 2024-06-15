@@ -2,20 +2,7 @@
 # Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex/a29ca90d-5d9f-41cb-9d1b-1e5535e0a1b4.vsidx
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex/b7aba9e8-5550-4304-a847-f74e2d52e4ab.vsidx
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex/bcd4925b-28f9-44c1-b761-7d4e6103d670.vsidx
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex/d493e93b-4642-41e1-a714-5a7a8fa90e76.vsidx
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex/df2b3a57-1762-4a4a-b8bd-ec174aa25d19.vsidx
-/.vs/Grupo4_ClinicaSePrise/v17/.wsuo
-/.vs/slnx.sqlite
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex/037aea64-7f7a-4b46-824b-5ce4691335be.vsidx
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex/49c15277-6922-4e9b-8dab-51ab21ca1394.vsidx
-/.vs/Grupo4_ClinicaSePrise/FileContentIndex
-/obj/Debug/net7.0-windows/Grupo4_ClinicaSePrise.assets.cache
-/obj/Debug/net7.0-windows/Grupo4_ClinicaSePrise.csproj.AssemblyReference.cache
-/obj/Debug/net7.0-windows/Grupo4_ClinicaSePrise.csproj.FileListAbsolute.txt
-/obj/Debug/net7.0-windows/Grupo4_ClinicaSePrise.GeneratedMSBuildEditorConfig.editorconfig
-/obj/Release/net7.0-windows/Grupo4_ClinicaSePrise.assets.cache
-/obj/Release/net7.0-windows/Grupo4_ClinicaSePrise.csproj.AssemblyReference.cache
-/obj/Release/net7.0-windows/Grupo4_ClinicaSePrise.GeneratedMSBuildEditorConfig.editorconfig
+/.vs
+/obj
+/bin
+/obj/
