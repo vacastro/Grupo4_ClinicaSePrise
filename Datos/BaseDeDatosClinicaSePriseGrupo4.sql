@@ -1,3 +1,4 @@
+drop database if exists ClinicaSePriseGrupo4;
 create database ClinicaSePriseGrupo4;
 use ClinicaSePriseGrupo4;
 
