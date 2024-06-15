@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grupo4_ClinicaSePrise.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,9 @@ namespace Grupo4_ClinicaSePrise
     {
         public FormLogin()
         {
+            
             InitializeComponent();
+
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
