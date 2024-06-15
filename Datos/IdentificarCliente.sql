@@ -1,4 +1,5 @@
-﻿DELIMITER // 
+﻿
+delimiter // 
 /* Creación del procedimiento almacenado para verificar si existe paciente */ 
 DROP PROCEDURE IF EXISTS IdentificarPaciente //
 CREATE PROCEDURE IdentificarPaciente(
@@ -22,7 +23,7 @@ BEGIN
     SET pTelefono = (SELECT telefono FROM paciente WHERE dni = pacienteDni);
     SET pDni = (SELECT dni FROM paciente WHERE dni = pacienteDni);
 END //
-DELIMITER ;
+delimiter ;
 
 -- Prueba del procedimiento almacenado
 CALL IdentificarPaciente(33495009, 

@@ -1,4 +1,5 @@
-﻿DELIMITER //
+
+﻿ DELIMITER //
 CREATE PROCEDURE ObtenerEspecialidadesPorTipo(
     IN tipoEspecialidad VARCHAR(50)
 )

@@ -1,4 +1,5 @@
-﻿DELIMITER //
+
+DELIMITER //
 
 CREATE PROCEDURE InsertarTurno(
     IN p_fecha DATE,
