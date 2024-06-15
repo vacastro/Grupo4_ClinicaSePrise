@@ -34,11 +34,14 @@
             dtgvColCantidad = new DataGridViewTextBoxColumn();
             lblTitleInsumos = new Label();
             backButton = new Button();
+            guardarBtn = new Button();
+            agregarInsumoBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvInsumos).BeginInit();
             SuspendLayout();
             // 
             // dtgvInsumos
             // 
+            dtgvInsumos.AllowUserToAddRows = false;
             dtgvInsumos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvInsumos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvInsumos.Columns.AddRange(new DataGridViewColumn[] { ID, dtgvColNombre, dtgvColCantidad });
@@ -47,6 +50,11 @@
             dtgvInsumos.RowTemplate.Height = 25;
             dtgvInsumos.Size = new Size(463, 308);
             dtgvInsumos.TabIndex = 0;
+            dtgvInsumos.CellContentClick += dtgvInsumos_CellContentClick;
+            dtgvInsumos.CellEndEdit += dtgvInsumos_CellEndEdit;
+            dtgvInsumos.RowsAdded += dtgvInsumos_RowsAdded;
+            dtgvInsumos.UserAddedRow += dtgvInsumos_UserAddedRow;
+            dtgvInsumos.UserDeletedRow += dtgvInsumos_UserDeletedRow;
             // 
             // ID
             // 
@@ -77,7 +85,7 @@
             // 
             // backButton
             // 
-            backButton.Location = new Point(456, 415);
+            backButton.Location = new Point(12, 415);
             backButton.Name = "backButton";
             backButton.Size = new Size(92, 23);
             backButton.TabIndex = 2;
@@ -85,11 +93,33 @@
             backButton.UseVisualStyleBackColor = true;
             backButton.Click += backButton_Click;
             // 
+            // guardarBtn
+            // 
+            guardarBtn.Location = new Point(456, 415);
+            guardarBtn.Name = "guardarBtn";
+            guardarBtn.Size = new Size(92, 23);
+            guardarBtn.TabIndex = 3;
+            guardarBtn.Text = "Guardar";
+            guardarBtn.UseVisualStyleBackColor = true;
+            guardarBtn.Click += guardarBtn_Click;
+            // 
+            // agregarInsumoBtn
+            // 
+            agregarInsumoBtn.Location = new Point(218, 415);
+            agregarInsumoBtn.Name = "agregarInsumoBtn";
+            agregarInsumoBtn.Size = new Size(114, 23);
+            agregarInsumoBtn.TabIndex = 4;
+            agregarInsumoBtn.Text = "Agregar Insumo";
+            agregarInsumoBtn.UseVisualStyleBackColor = true;
+            agregarInsumoBtn.Click += agregarInsumoBtn_Click;
+            // 
             // FormInsumos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(560, 450);
+            Controls.Add(agregarInsumoBtn);
+            Controls.Add(guardarBtn);
             Controls.Add(backButton);
             Controls.Add(lblTitleInsumos);
             Controls.Add(dtgvInsumos);
@@ -108,5 +138,7 @@
         private DataGridViewTextBoxColumn dtgvColNombre;
         private DataGridViewTextBoxColumn dtgvColCantidad;
         private Button backButton;
+        private Button guardarBtn;
+        private Button agregarInsumoBtn;
     }
 }

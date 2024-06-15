@@ -8,9 +8,9 @@ namespace Grupo4_ClinicaSePrise.Entidades
 {
     public class Insumo
     {
-        public int id { get; set; }
-        public string nombre { get; set; }
-        public int cantidad { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public int Cantidad { get; set; }
     }
 
 
