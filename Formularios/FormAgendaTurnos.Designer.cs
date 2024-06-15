@@ -48,7 +48,6 @@
             // BoxTrurnos
             // 
             BoxTrurnos.FormattingEnabled = true;
-            BoxTrurnos.Items.AddRange(new object[] { "ginecologia", "cardiologia", "laboratorio", "estudios" });
             BoxTrurnos.Location = new Point(211, 136);
             BoxTrurnos.Name = "BoxTrurnos";
             BoxTrurnos.Size = new Size(121, 23);

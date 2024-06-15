@@ -25,9 +25,18 @@ namespace Grupo4_ClinicaSePrise.Formularios
         public void mostrarEspecialidades()
         {
             EspecialidadesDatos especialidadDatos = new EspecialidadesDatos();
-            List<string> especialidades = especialidadDatos.ObtenerEspecialidadesPorTipo("consultorios_externos");
+            List<string> consultorios = especialidadDatos.ObtenerEspecialidadesPorTipo("consultorio_externo");
 
-            BoxTrurnos.Items.Add(especialidades);
+            foreach (string especialidad in consultorios)
+            {
+                BoxTrurnos.Items.Add(especialidad);
+            }
+
+            List<string> estudios = especialidadDatos.ObtenerEspecialidadesPorTipo("estudios_medicos");
+            foreach (string especialidad in estudios)
+            {
+                BoxTrurnos.Items.Add(especialidad);
+            }
         }
 
         public void mostrarListaTurnos(string especialidad)
@@ -47,7 +56,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
                     PacienteDatos datosPaciente = new PacienteDatos();
                     var pacienteEncontrado = datosPaciente.BuscarPacienteById(turnoPaciente.PacienteId);
 
-                    listaTurnos.Add(new TurnoFila { Nombre = pacienteEncontrado.Nombre, Apellido = pacienteEncontrado.Apellido, DNI = pacienteEncontrado.Dni, Email = pacienteEncontrado.Email });
+                    listaTurnos.Add(new TurnoFila {Hora = turnoPaciente.Hora ,Nombre = pacienteEncontrado.Nombre, Apellido = pacienteEncontrado.Apellido, DNI = pacienteEncontrado.Dni, Email = pacienteEncontrado.Email });
                 }
             }
 
@@ -78,6 +87,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
             string selectedText = selectedItem.ToString();
 
             mostrarListaTurnos(selectedText);
+
         }
 
         private void dateAgendaTrunos_ValueChanged(object sender, EventArgs e)
@@ -93,6 +103,6 @@ namespace Grupo4_ClinicaSePrise.Formularios
         public string Apellido { get; set; }
         public long DNI { get; set; }
         public string Email { get; set; }
-        public int Socio { get; set; }
+        //public int Socio { get; set; }
     }
 }
