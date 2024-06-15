@@ -64,7 +64,6 @@
             Name = "FormMenuPpal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMenuPpal";
-            Load += FormMenuPpal_Load;
             ResumeLayout(false);
         }
 

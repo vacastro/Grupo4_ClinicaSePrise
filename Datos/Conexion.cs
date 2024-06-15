@@ -20,10 +20,10 @@ namespace Grupo4_ClinicaSePrise.Datos
         private Conexion() // asignamos valores a las variables de la conexion
         {
             this.baseDatos = "ClinicaSePriseGrupo4";
-            this.servidor = "192.168.1.179";
+            this.servidor = "localhost";
             this.puerto = "3306";
-            this.usuario = "selene";
-            this.clave = "selene";
+            this.usuario = "root";
+            this.clave = "";
         }
 
         // proceso de interacción
