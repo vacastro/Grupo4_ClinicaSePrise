@@ -27,5 +27,10 @@ namespace Grupo4_ClinicaSePrise
             FormAgendaTurnos formAgendaTurnos = new FormAgendaTurnos();
             formAgendaTurnos.ShowDialog();
         }
+
+        private void FormMenuPpal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

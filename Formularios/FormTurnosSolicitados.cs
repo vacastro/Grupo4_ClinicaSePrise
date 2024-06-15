@@ -77,5 +77,7 @@ namespace Grupo4_ClinicaSePrise.Formularios
                 MessageBox.Show("Por favor, seleccione un turno para cancelar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+      
     }
 }
