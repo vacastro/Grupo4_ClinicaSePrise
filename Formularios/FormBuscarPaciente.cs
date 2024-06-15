@@ -59,7 +59,6 @@ namespace Grupo4_ClinicaSePrise.Formularios
                 {
                     SinLocalizarPaciente sinLocalizarPaciente = new SinLocalizarPaciente();
                     sinLocalizarPaciente.Show();
-
                 }
             }
         }

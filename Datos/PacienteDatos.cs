@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,5 +64,113 @@ namespace Grupo4_ClinicaSePrise.Datos
             return pac;
         }
 
+        public void InsertarPaciente(Paciente paciente)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+
+                MySqlCommand cmd = new MySqlCommand("InsertarPaciente", sqlCon);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("pNombre", paciente.Nombre);
+                cmd.Parameters.AddWithValue("pApellido", paciente.Apellido);
+                cmd.Parameters.AddWithValue("pFecNacimiento", paciente.FecNacimiento);
+                cmd.Parameters.AddWithValue("pDomicilio", paciente.Domicilio);
+                cmd.Parameters.AddWithValue("pEmail", paciente.Email);
+                cmd.Parameters.AddWithValue("pTelefono", paciente.Telefono);
+                cmd.Parameters.AddWithValue("pDni", paciente.Dni);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                    sqlCon.Close();
+            }
+        }
+
+        public void ActualizarPaciente(Paciente paciente)
+        {
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+
+                MySqlCommand cmd = new MySqlCommand("ActualizarPaciente", sqlCon);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("pPacienteId", paciente.PacienteId);
+                cmd.Parameters.AddWithValue("pNombre", paciente.Nombre);
+                cmd.Parameters.AddWithValue("pApellido", paciente.Apellido);
+                cmd.Parameters.AddWithValue("pFecNacimiento", paciente.FecNacimiento);
+                cmd.Parameters.AddWithValue("pDomicilio", paciente.Domicilio);
+                cmd.Parameters.AddWithValue("pEmail", paciente.Email);
+                cmd.Parameters.AddWithValue("pTelefono", paciente.Telefono);
+                cmd.Parameters.AddWithValue("pDni", paciente.Dni);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                    sqlCon.Close();
+            }
+        }
+
+        public Paciente BuscarPacienteById(long pacienteId)
+        {
+            Paciente? pac = null;
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+                sqlCon.Open();
+
+                string query = "SELECT nombre, apellido,dni, email FROM paciente WHERE pacienteId = @pacienteId";
+
+                MySqlCommand command = new MySqlCommand(query, sqlCon);
+                command.Parameters.AddWithValue("@pacienteId", pacienteId);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        pac = new Paciente
+                        {
+
+                            Nombre = reader.GetString("nombre"),
+                            Apellido = reader.GetString("apellido"),
+                            Dni = reader.GetInt64("dni"),
+                            Email = reader.GetString("email"),
+                            PacienteId = pacienteId
+                        };
+
+
+                    }
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+
+            return pac;
+
+
+
+        }
     }
 }

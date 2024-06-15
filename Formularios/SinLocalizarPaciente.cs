@@ -16,5 +16,16 @@ namespace Grupo4_ClinicaSePrise.Formularios
         {
             InitializeComponent();
         }
+
+        private void btnCensar_Click_1(object sender, EventArgs e)
+        {
+            FormAltaPaciente formAltaPaciente = new FormAltaPaciente();
+            formAltaPaciente.ShowDialog();
+        }
+
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

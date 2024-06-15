@@ -7,6 +7,12 @@
     <Compile Update="Formularios\FormInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\FormActualizarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\FormAltaPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\FormConfirmacionTurno.cs">
       <SubType>Form</SubType>
     </Compile>
