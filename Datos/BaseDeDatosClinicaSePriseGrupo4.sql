@@ -1,4 +1,4 @@
-﻿drop database if exists ClinicaSePriseGrupo4;
+drop database if exists ClinicaSePriseGrupo4;
 create database ClinicaSePriseGrupo4;
 use ClinicaSePriseGrupo4;
 
@@ -31,6 +31,14 @@ CREATE TABLE especialidades (
     tipo_especialidad ENUM('consultorio_externo', 'estudios_medicos'),
     PRIMARY KEY (especialidad_id)
 );
+
+CREATE TABLE insumos (
+    insumo_id INT AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    cantidad int,
+    PRIMARY KEY (insumo_id)
+);
+
 -- Consultorios externos
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Alergología');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('consultorio_externo', 'Andrología');
@@ -70,6 +78,15 @@ INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('est
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('estudios_medicos', 'Resonancia magnética');
 INSERT INTO Especialidades (tipo_especialidad, nombre_especialidad) VALUES ('estudios_medicos', 'Tomografía');
 
+-- Estudios médicos
+INSERT INTO Insumos (nombre, cantidad) VALUES ('Jeringas Descartables 5mm', 1500);
+INSERT INTO Insumos (nombre, cantidad) VALUES ('Reactivos Urocultivo', 350);
+INSERT INTO Insumos (nombre, cantidad) VALUES ('Reactivos Glucosa', 10);
+INSERT INTO Insumos (nombre, cantidad) VALUES ('Heparina', 100);
+INSERT INTO Insumos (nombre, cantidad) VALUES ('ELISA', 450);
+INSERT INTO Insumos (nombre, cantidad) VALUES ('Reactivos COVID', 2000);
+INSERT INTO Insumos (nombre, cantidad) VALUES ('Reactivos VIH', 750);
+INSERT INTO Insumos (nombre, cantidad) VALUES ('Reactivos Hepatitis', 300);
 
 CREATE TABLE paciente (
     pacienteId INT AUTO_INCREMENT,

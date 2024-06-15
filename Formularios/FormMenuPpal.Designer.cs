@@ -30,12 +30,13 @@
         {
             SolicitudTurnoButton = new Button();
             AgendaTurnoButton = new Button();
+            InsumosButton = new Button();
             SuspendLayout();
             // 
             // SolicitudTurnoButton
             // 
             SolicitudTurnoButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            SolicitudTurnoButton.Location = new Point(309, 71);
+            SolicitudTurnoButton.Location = new Point(309, 52);
             SolicitudTurnoButton.Name = "SolicitudTurnoButton";
             SolicitudTurnoButton.Size = new Size(187, 91);
             SolicitudTurnoButton.TabIndex = 0;
@@ -46,7 +47,7 @@
             // AgendaTurnoButton
             // 
             AgendaTurnoButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            AgendaTurnoButton.Location = new Point(309, 221);
+            AgendaTurnoButton.Location = new Point(309, 161);
             AgendaTurnoButton.Name = "AgendaTurnoButton";
             AgendaTurnoButton.Size = new Size(187, 91);
             AgendaTurnoButton.TabIndex = 1;
@@ -54,11 +55,23 @@
             AgendaTurnoButton.UseVisualStyleBackColor = true;
             AgendaTurnoButton.Click += AgendaTurnoButton_Click;
             // 
+            // InsumosButton
+            // 
+            InsumosButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            InsumosButton.Location = new Point(309, 273);
+            InsumosButton.Name = "InsumosButton";
+            InsumosButton.Size = new Size(187, 91);
+            InsumosButton.TabIndex = 2;
+            InsumosButton.Text = "Gestion Insumos";
+            InsumosButton.UseVisualStyleBackColor = true;
+            InsumosButton.Click += InsumosButton_Click;
+            // 
             // FormMenuPpal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 411);
+            Controls.Add(InsumosButton);
             Controls.Add(AgendaTurnoButton);
             Controls.Add(SolicitudTurnoButton);
             Name = "FormMenuPpal";
@@ -72,5 +85,6 @@
 
         private Button SolicitudTurnoButton;
         private Button AgendaTurnoButton;
+        private Button InsumosButton;
     }
 }
